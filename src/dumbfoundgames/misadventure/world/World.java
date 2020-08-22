@@ -3,6 +3,7 @@ package dumbfoundgames.misadventure.world;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+import dumbfoundgames.misadventure.entity.creature.Player;
 import dumbfoundgames.misadventure.util.Line;
 import dumbfoundgames.misadventure.util.Util;
 
@@ -10,20 +11,23 @@ public class World
 {
 	private Line[] lines;
 	private String background;
+	private Player player;
 	
 	public World(String filePath)
 	{
 		loadWorld(filePath);
+		
+		player = new Player();
 	}
 	
 	public void tick()
 	{
-		
+		player.tick();
 	}
 	
 	public void render(Graphics g)
 	{
-		
+		player.render(g);
 	}
 	
 	private void loadWorld(String filePath)
@@ -52,6 +56,6 @@ public class World
 			lines.add(new Line(x1, y1, x2, y2));
 		}
 		
-		this.lines = (Line[]) lines.toArray();
+		this.lines = lines.toArray(new Line[1]);
 	}
 }

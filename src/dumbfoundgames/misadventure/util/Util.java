@@ -22,8 +22,7 @@ public class Util
 		{
 			e.printStackTrace();
 		}
-		
-		return (String[]) file.toArray();
+		return file.toArray(new String[1]);
 	}
 	
 	public static int parseInt(String number)
